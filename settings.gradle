@@ -1,0 +1,2 @@
+include ':app', ':zyzzc_permission_lib'
+rootProject.name='PermissionLib'
