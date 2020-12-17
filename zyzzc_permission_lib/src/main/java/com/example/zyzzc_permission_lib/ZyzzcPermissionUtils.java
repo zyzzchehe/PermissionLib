@@ -66,27 +66,5 @@ public class ZyzzcPermissionUtils {
 
         //真正开始申请
         mActivity.requestPermissions(reqPermission.toArray(new String[]{}), reqCode);
-
     }
-
-    //处理权限返回的回调
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == mReqCode) {
-            AtomicBoolean grantAll = new AtomicBoolean(true);
-            //遍历每一个授权结果
-            for (int i = 0; i < grantResults.length; i++) {
-                if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                    grantAll.set(false);
-                    Toast.makeText(mActivity, permissions[i] + "未授权", Toast.LENGTH_SHORT).show();
-                    break;
-                }
-            }
-            if (grantAll.get()) {
-                mCallBack.grantAll();
-            } else {
-                mCallBack.denied();
-            }
-        }
-    }
-
 }
