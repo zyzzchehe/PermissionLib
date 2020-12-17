@@ -36,13 +36,14 @@ public class MainActivity extends AppCompatActivity implements ZyzzcPermissionUt
     }
 }
 
-2、private ZyzzcPermissionUtils zyzzcPermissionUtils;
- zyzzcPermissionUtils = new ZyzzcPermissionUtils(this);
-        perList = new ArrayList<>();
-        perList.add(Manifest.permission.INTERNET);
-        perList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-        perList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        zyzzcPermissionUtils.request(perList, reqCode, this);
+2、调用
+private ZyzzcPermissionUtils zyzzcPermissionUtils;
+zyzzcPermissionUtils = new ZyzzcPermissionUtils(this);
+perList = new ArrayList<>();
+perList.add(Manifest.permission.INTERNET);
+perList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+perList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+zyzzcPermissionUtils.request(perList, reqCode, this);
 	
 3、重写onRequestPermissionsResult函数
     @Override
