@@ -20,9 +20,9 @@ Step 2. Add the dependency
 
 
 可以调用的方案有两种：
-第一种：
 
-Activity 中如何调用？
+第一种：Activity 中如何调用？
+
 1、Activity 实现回调接口，并重写对应回调函数，如：
 
     public class MainActivity extends AppCompatActivity implements ZyzzcPermissionUtils.CallBack {
@@ -70,7 +70,7 @@ Activity 中如何调用？
         }
     }
 
-第二种：
+第二种：Application中如何调用？
 
     public class MyApp extends Application {
         static List<String> permissionList = new ArrayList<>();
