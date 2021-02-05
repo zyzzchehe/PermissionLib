@@ -39,13 +39,21 @@ Step 2. Add the dependency
 
 2、调用
 
+    //申请动态权限
     private ZyzzcPermissionUtils zyzzcPermissionUtils;
-    zyzzcPermissionUtils = new ZyzzcPermissionUtils(this);
-    perList = new ArrayList<>();
-    perList.add(Manifest.permission.INTERNET);
-    perList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-    perList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-    zyzzcPermissionUtils.request(perList, reqCode, this);
+    private ArrayList<String> permissionList;
+    private int reqCode = 1;
+    
+onCreate 方法中：    
+
+        zyzzcPermissionUtils = new ZyzzcPermissionUtils(this);
+        permissionList = new ArrayList<>();
+        permissionList.add(Manifest.permission.INTERNET);
+        permissionList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            zyzzcPermissionUtils.request(permissionList, reqCode, this);
+        }
 	
 3、重写onRequestPermissionsResult函数
 
